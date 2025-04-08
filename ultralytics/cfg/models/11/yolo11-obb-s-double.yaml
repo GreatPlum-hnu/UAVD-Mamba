@@ -1,0 +1,48 @@
+# Ultralytics YOLO 🚀, AGPL-3.0 license
+# YOLO11 Oriented Bounding Boxes (OBB) model with P3-P5 outputs. For Usage examples see https://docs.ultralytics.com/tasks/obb
+
+# Parameters
+nc: 5 # number of classes
+scales: # model compound scaling constants, i.e. 'model=yolo11n-obb.yaml' will call yolo11-obb.yaml with scale 'n'
+  # [depth, width, max_channels]
+  # n: [0.50, 0.25, 1024] # summary: 344 layers, 2695747 parameters, 2695731 gradients, 6.9 GFLOPs
+  s: [0.50, 0.50, 1024] # summary: 344 layers, 9744931 parameters, 9744915 gradients, 22.7 GFLOPs
+  m: [0.50, 1.00, 512] # summary: 434 layers, 20963523 parameters, 20963507 gradients, 72.2 GFLOPs
+  l: [1.00, 1.00, 512] # summary: 656 layers, 26220995 parameters, 26220979 gradients, 91.3 GFLOPs
+  x: [1.00, 1.50, 512] # summary: 656 layers, 58875331 parameters, 58875315 gradients, 204.3 GFLOPs
+
+# YOLO11n backbone
+backbone:
+  # [from, repeats, module, args]
+  - [-1, 1, Concat_mamba, [128, 6, 2, 2]] # 0-P1/2
+  - [-1, 1, DConv, [128, 3, 2]] # 1-P2/4
+  - [-1, 2, SingleMambaBlock, [128]]
+  - [-1, 1, DConv, [256, 3, 2]] # 3-P3/8
+  - [-1, 4, SingleMambaBlock, [256]]
+  - [-1, 1, DConv, [512, 3, 2]] # 5-P4/16
+  - [-1, 6, SingleMambaBlock, [512]]
+  - [-1, 1, DConv, [1024, 3, 2]] # 7-P5/32
+  - [-1, 2, SingleMambaBlock, [1024]]
+  - [-1, 1, SPPF, [1024, 5]] # 9
+  - [-1, 1, Conv, [512, 1, 1]] # 10
+
+# YOLO11n head
+head:
+  - [-1, 1, nn.Upsample, [None, 2, "nearest"]]
+  - [[-1, 6], 1, Concat, [1]] # cat backbone P4
+  - [-1, 2, SingleMambaBlock, [1024]] # 13
+
+  - [-1, 1, Conv, [256, 1, 1]]
+  - [-1, 1, nn.Upsample, [None, 2, "nearest"]]
+  - [[-1, 4], 1, Concat, [1]] # cat backbone P3
+  - [-1, 2, SingleMambaBlock, [512]] # 17 (P3/8-small)
+
+  - [-1, 1, Conv, [256, 3, 2]]
+  - [[-1, 14], 1, Concat, [1]] # cat head P4
+  - [-1, 2, SingleMambaBlock, [512]] # 20 (P4/16-medium)
+
+  - [-1, 1, Conv, [512, 3, 2]]
+  - [[-1, 10], 1, Concat, [1]] # cat head P5
+  - [-1, 2, SingleMambaBlock, [1024]] # 23 (P5/32-large)
+
+  - [[17, 20, 23], 1, OBB, [nc, 1]] # Detect(P3, P4, P5)
