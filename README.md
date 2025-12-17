@@ -21,6 +21,32 @@
 This repository contains the code for the paper [UAVD-Mamba: Deformable Token Fusion Vision Mamba for Multimodal UAV Detection](https://ieeexplore.ieee.org/document/11097442).
 >  - [2025 IEEE Intelligent Vehicles Symposium (IV) Paper](https://ieeexplore.ieee.org/abstract/document/11097569), IEEE IV 2025 
 
+## Datasets
+
+ * DroneVehicle 
+
+### Dataset Organization Format
+
+```bash
+datasets/
+├── 📁 train/
+│   ├── 🖼️ images/
+│   │   ├── 00001.jpg
+│   │   └── ...
+│   └── 📄 labels/
+│       ├── 00001.txt
+│       └── ...
+├── 📁 train2/
+│   ├── 🖼️ images/
+│   └── 📄 labels/
+├── 📁 val/
+│   ├── 🖼️ images/
+│   └── 📄 labels/
+└── 📁 val2/
+    ├── 🖼️ images/
+    └── 📄 labels/
+```
+
 ## Setup
 1. Clone the repository:
   ```bash
@@ -57,6 +83,23 @@ This repository contains the code for the paper [UAVD-Mamba: Deformable Token Fu
   ```bash
   python val.py
   ```
+
+## Citation
+
+If you find our repo or our paper useful, please use the following citation:
+
+```
+@INPROCEEDINGS{11097442,
+  author={Li, Wei and Tang, Jiaman and Li, Yang and Xia, Beihao and Tan, Ligang and Qin, Hongmao},
+  booktitle={2025 IEEE Intelligent Vehicles Symposium (IV)}, 
+  title={UAVD-Mamba: Deformable Token Fusion Vision Mamba for Multimodal UAV Detection}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={561-568},
+  keywords={Convolutional codes;YOLO;Measurement;Shape;Intelligent vehicles;Redundancy;Object detection;Feature extraction;Autonomous aerial vehicles;Neck},
+  doi={10.1109/IV64158.2025.11097442}}
+```
 
 ## Acknowledgements
 
