@@ -1,5 +1,6 @@
-# [IV 2025] UAVD-Mamba: Deformable Token Fusion Vision Mamba for Multimodal UAV Detection
 <div align="center">
+
+# [IV 2025] UAVD-Mamba: Deformable Token Fusion Vision Mamba for Multimodal UAV Detection
 
 [![arXiv](https://img.shields.io/badge/arXiv%20paper-2507.00849-b31b1b.svg)](https://arxiv.org/abs/2507.00849)
 [![IV 2025](https://img.shields.io/badge/IV%202025-blue)](https://ieeexplore.ieee.org/abstract/document/11097569)
