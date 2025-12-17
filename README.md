@@ -1,3 +1,20 @@
+# UAVD-Mamba: Deformable Token Fusion Vision Mamba for Multimodal UAV Detection
+1. The core of Deformable Token
+![teaser](assets/AdaptivePatch.png)
+
+2. The overview of UAVD-Mamba
+![teaser](assets/Overview.png)
+
+3. UAVD-Mamba detection neck
+![teaser](assets/DetectionNeck.png)
+
+4. Detection results on DroneVehicle dataset
+![teaser](assets/Results.png)
+
+This repository contains the code for the paper [UAVD-Mamba: Deformable Token Fusion Vision Mamba for Multimodal UAV Detection](https://ieeexplore.ieee.org/document/11097442).
+>  - [2025 IEEE Intelligent Vehicles Symposium (IV) Paper](https://ieeexplore.ieee.org/abstract/document/11097569), IEEE IV 2025 
+
+## Setup
 1. Clone the repository:
   ```bash
   git clone https://github.com/GreatPlum-hnu/UAVD-Mamba.git
