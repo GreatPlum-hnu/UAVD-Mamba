@@ -1,7 +1,7 @@
 # [IV 2025] UAVD-Mamba: Deformable Token Fusion Vision Mamba for Multimodal UAV Detection
 <div align="center">
 
-[![arXiv](https://img.shields.io/badge/arXiv%20paper-2404.17360-b31b1b.svg)](https://arxiv.org/abs/2507.00849)&nbsp;
+[![arXiv](https://img.shields.io/badge/arXiv%20paper-2507.00849-b31b1b.svg)](https://arxiv.org/abs/2507.00849)&nbsp;
 
 </div>
 
@@ -57,10 +57,10 @@ This repository contains the code for the paper [UAVD-Mamba: Deformable Token Fu
   python val.py
   ```
 
+## Acknowledgements
 
-This project is based on  
-1.https://github.com/ultralytics/ultralytics.git
-2.https://github.com/hustvl/Vim.git
-3.https://github.com/PSRben/FusionMamba.git
-4.https://github.com/yjh0410/PyTorch_DCNv2.git
-Thanks for their wonderful works.
+Our code is based on several repositories:
+- [YOLO](https://github.com/ultralytics/ultralytics.git)
+- [Vim](https://github.com/hustvl/Vim.git)
+- [FusionMamba](https://github.com/PSRben/FusionMamba.git)
+- [DCN](https://github.com/yjh0410/PyTorch_DCNv2.git)
