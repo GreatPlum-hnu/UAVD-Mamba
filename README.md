@@ -1,4 +1,9 @@
 # UAVD-Mamba: Deformable Token Fusion Vision Mamba for Multimodal UAV Detection
+<div align="center">
+
+[![arXiv](https://img.shields.io/badge/arXiv%20paper-2404.17360-b31b1b.svg)](https://arxiv.org/abs/2507.00849)&nbsp;
+
+</div>
 1. The core of Deformable Token
 ![teaser](assets/AdaptivePatch.png)
 
